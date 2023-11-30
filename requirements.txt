@@ -4,3 +4,4 @@ requests==2.31.0
 fpdf==1.7.2
 fitz==0.0.1.dev2
 pathlib==1.0.1
+streamlit-option-menu==0.3.6
