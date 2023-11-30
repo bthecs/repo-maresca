@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  flask:
+    container_name: api
+    build: api/
+    environment:
+      - PORT=6000
+      - DEBUG=0
+      - MONGO_URI=mongodb://admin:pass@localhost:27017/db?authSource=admin
+      - JWT_SECRET_KEY=secret
+    ports:
+      - "6000:6000"
+    depends_on:
+      - mongo
+    networks:
+      - red
+
+  mongo:
+    container_name: mongodb
+    image: "mongo:latest"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+      - MONGO_INITDB_DATABASE=db
+    ports:
+      - "27017:27017"
+    volumes:
+      - '/database:/data/db'
+    restart: unless-stopped
+    networks:
+      - red
+
+networks:
+  red:
+    driver: bridge

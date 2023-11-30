@@ -1,0 +1,4 @@
+[data-testid="stAppViewContainer"] {
+    background: rgb(54, 232, 233);
+    background: linear-gradient(0deg, rgba(54, 232, 233, 1) 0%, rgba(8, 106, 122, 1) 69%, rgba(0, 0, 0, 1) 100%);
+  }
